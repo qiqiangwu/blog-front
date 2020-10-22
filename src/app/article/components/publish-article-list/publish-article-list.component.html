@@ -1,0 +1,19 @@
+<nz-list class="loadmore-list" [nzLoading]="isInit">
+    <nz-list-item *ngFor="let item of list" [class.active]="item.id === activeId" (click)="onItemClick(item.id)">
+        <ng-container *ngIf="item.title">
+            {{ item.title }}
+            <i *ngIf="activeId === item.id" nz-icon nzType="setting" nzTheme="outline" nz-dropdown nzTrigger="click"
+                [nzDropdownMenu]="menu" (click)="$event.stopPropagation()"></i>
+        </ng-container>
+        <nz-skeleton *ngIf="!item.title" [nzAvatar]="true" [nzActive]="true" [nzTitle]="false" [nzLoading]="true">
+        </nz-skeleton>
+    </nz-list-item>
+    <div class="loadmore" nz-list-load-more>
+        <button nz-button [nzBlock]="true" *ngIf="!noMore" (click)="onLoadMore()">加载更多</button>
+    </div>
+</nz-list>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+        <li nz-menu-item (click)="deleteArticle()">删除</li>
+    </ul>
+</nz-dropdown-menu>

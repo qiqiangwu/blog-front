@@ -1,0 +1,6 @@
+<nz-breadcrumb *ngIf="items?.length > 1">
+    <nz-breadcrumb-item *ngFor="let item of items;let i = index">
+        <a *ngIf="i !== items.length-1" (click)="jumpTo(i)">{{item.title}}</a>
+        <ng-container *ngIf="i === items.length-1">{{item.title}}</ng-container>
+    </nz-breadcrumb-item>
+</nz-breadcrumb>

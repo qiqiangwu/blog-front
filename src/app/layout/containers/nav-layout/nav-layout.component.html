@@ -1,0 +1,14 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo"><i>B</i>log</div>
+    <app-top-nav [user]="user$ | async"></app-top-nav>
+  </nz-header>
+  <nz-content>
+    <div class="breadcrumb">
+      <app-bread-crumb [items]="breadCrumbItems$ | async"></app-bread-crumb>
+    </div>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+</nz-layout>

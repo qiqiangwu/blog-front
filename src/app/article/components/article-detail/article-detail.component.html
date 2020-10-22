@@ -1,0 +1,6 @@
+<h1>{{article?.title}}</h1>
+<div class="sub">
+    <span class="author">{{article?.author?.name}}</span>
+    <span class="update">{{article?.updatedAt | date:'yyyy.MM.dd hh:mm:ss'}}</span>
+</div>
+<div [innerHTML]="article?.content"></div>

@@ -1,0 +1,23 @@
+<div class="nav">
+  <!-- <ul nz-menu nzTheme="dark" nzMode="horizontal">
+    <li nz-menu-item>nav 1</li>
+    <li nz-menu-item>nav 2</li>
+    <li nz-menu-item>nav 3</li>
+  </ul> -->
+  <div class="right">
+    <a nz-button [nzSize]="size" nzType="link" routerLink="/sign-in" *ngIf="!user">登录</a>
+    <a class="user-dropdown" nz-dropdown [nzDropdownMenu]="menu" [nzVisible]="true" *ngIf="user">
+      {{ user.name }}
+      <i nz-icon nzType="down"></i>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item><i nz-icon nzType="setting" nzTheme="outline"></i>设置</li>
+        <li nz-menu-item (click)="signOut()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出</li>
+      </ul>
+    </nz-dropdown-menu>
+    <button nz-button nzType="primary" [nzSize]="size" nzShape="round" routerLink="/article/publish">
+      <i nz-icon nzType="file-word" nzTheme="outline"></i>写文章
+    </button>
+  </div>
+</div>

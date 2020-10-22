@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  height: 100%;
+}
+.back-home-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.add-catalog-container {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px 0;
+  box-sizing: content-box;
+}
+.add-catalog-panel,
+.add-catalog-button {
+  position: absolute;
+}
+.catalog-list {
+  flex: 1;
+  background-color: #404040;
+  color: #f2f2f2;
+
+  height: 100vh;
+  overflow-y: auto;
+}
+.article-list {
+  height: 100vh;
+  overflow-y: auto;
+
+  flex: 1;
+  border-right: 1px solid #d9d9d9;
+
+  > button {
+    margin: 16px auto;
+    display: block;
+  }
+}
+.editor {
+  position: relative;
+
+  height: 100vh;
+  overflow-y: auto;
+
+  flex: 4;
+  margin-right: 2px;
+}

@@ -1,0 +1,27 @@
+<div class="catalog-list">
+    <button class="back-home-button" nz-button nzType="default" [nzSize]="'large'" nzShape="round"
+        (click)="backHome()">返回</button>
+    <div class="add-catalog-container">
+        <app-add-catalog class="add-catalog-panel" *ngIf="flagAddCatalog" @addCatalogPanelTrigger
+            (cancel)="onCancelAddCatalog()" (add)="addCatalog($event)">
+        </app-add-catalog>
+        <button class="add-catalog-button" nz-button nzType="default" [nzSize]="'large'" nzShape="round"
+            (click)="openCatalogPanel()" *ngIf="!flagAddCatalog" @addCatalogButtonTrigger>新增文章类别</button>
+    </div>
+    <app-catalog-list [list]="catalogList$ | async" [activeId]="activeCatalogId$ | async"
+        (itemClick)="activeCatalogChange($event)"></app-catalog-list>
+</div>
+<div class="article-list">
+    <button nz-button nzType="text" [nzSize]="'large'" nzShape="round" (click)="createArticle()">
+        <i nz-icon nzType="plus" nzTheme="outline"></i>
+        新建文章
+    </button>
+    <app-publish-article-list [list]="publishArticleList$ | async" [activeId]="activeArticleId$ | async"
+        [isInit]="publishArticleListIsInit$ | async" [noMore]="publishArticleListNoMore$ | async"
+        (itemClick)="activeArticleChange($event)" (loadmore)="onLoadMoreArticleList($event)">
+    </app-publish-article-list>
+</div>
+<div class="editor">
+    <app-editor [id]="activeArticleId$ | async" [article]="activeArticle$ | async" (publish)="publish($event)">
+    </app-editor>
+</div>
