@@ -1,11 +1,11 @@
 FROM node:alpine3.12 as builder
 WORKDIR /usr/src/app
 
-COPY ./package.json .
+COPY ./package*.json ./
 RUN npm install --registry=https://registry.npm.taobao.org
 
 COPY . .
-RUN npm run build -- --prod
+RUN npm run build:prod
 
 FROM nginx:alpine
 

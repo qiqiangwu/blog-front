@@ -17,11 +17,11 @@ export class NavigateService {
     );
   }
 
-  redirect(url: string, replace = false) {
+  redirect(url: string, replace = false, delay = 0) {
     this.store.dispatch(
       RouterActions.redirect({
         url,
-        replace,
+        replace
       })
     );
   }

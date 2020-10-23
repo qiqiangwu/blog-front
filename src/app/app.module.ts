@@ -35,6 +35,7 @@ import { AppReuseStrategy } from './app-reuse-strategy';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { AddCredentialsInterceptor } from './common/interceptors/add-credentials.interceptor';
 import { BreadCrumbEffects } from './common/effects/bread-crumb.effects';
+import { UnauthorizedInterceptor } from './common/interceptors/unauthorized.interceptor';
 
 const icons: IconDefinition[] = [];
 
@@ -68,6 +69,11 @@ registerLocaleData(zh);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AddCredentialsInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
       multi: true,
     },
     {
